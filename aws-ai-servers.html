@@ -6,184 +6,163 @@
 <title>AWS 要卖 AI 服务器了</title>
 <style>
   :root {
-    --bg: #000000;
-    --bg-card: #0d0d1a;
-    --bg-card-alt: #12122a;
-    --text: #c8c4d0;
-    --text-dim: #6a6a8a;
-    --neon-blue: #3b82f6;
-    --neon-purple: #8b5cf6;
-    --neon-amber: #f59e0b;
-    --neon-rose: #f43f5e;
-    --neon-teal: #14b8a6;
-    --border: rgba(59,130,246,.12);
-    --glow-blue: 0 0 10px rgba(59,130,246,.25);
-    --glow-amber: 0 0 10px rgba(245,158,11,.25);
-    --max-width: 840px;
-    --font-mono: "JetBrains Mono","Fira Code","Cascadia Code",monospace;
+    --bg: #f5f0e8;
+    --bg-card: #ffffff;
+    --bg-highlight: #fbf7f0;
+    --text: #2c2c2c;
+    --text-dim: #7a7a7a;
+    --accent: #c9772e;
+    --accent-soft: rgba(201,119,46,.10);
+    --accent-blue: #2b6cb0;
+    --border: #e5ddd0;
+    --shadow: 0 2px 8px rgba(0,0,0,.04);
+    --max-w: 720px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"Noto Sans SC","PingFang SC",system-ui,sans-serif;
-    background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,"Times New Roman",serif;
+    background:var(--bg);color:var(--text);line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px
   }
-  .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+  .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
 
-  /* HERO */
-  .hero{
-    padding:80px 0 56px;text-align:center;
-    border-bottom:1px solid var(--border);
-    position:relative;overflow:hidden
+  /* HEADER */
+  .article-header{
+    padding:56px 0 32px;text-align:center;
+    border-bottom:1px solid var(--border)
   }
-  .hero::before{
-    content:'';position:absolute;inset:0;
-    background:radial-gradient(ellipse at 20% 30%,rgba(59,130,246,.06) 0%,transparent 50%),
-               radial-gradient(ellipse at 80% 70%,rgba(139,92,246,.04) 0%,transparent 50%);
-    pointer-events:none
+  .article-header h1{
+    font-size:1.6rem;font-weight:700;line-height:1.35;
+    color:#1a1a1a
   }
-  .hero::after{
-    content:'';position:absolute;inset:0;
-    background-image:linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),
-                     linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px);
-    background-size:40px 40px;pointer-events:none
+  .article-header .subtitle{
+    color:var(--text-dim);font-size:.85rem;margin-top:10px;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif
   }
-  .hero h1{
-    font-size:2rem;font-weight:800;line-height:1.3;
-    position:relative;z-index:1;
-    text-shadow:0 0 20px rgba(59,130,246,.25)
+  .article-header .meta{
+    display:flex;justify-content:center;gap:10px;margin-top:14px;
+    flex-wrap:wrap;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+    font-size:.78rem;color:var(--text-dim)
   }
-  .hero h1 .gradient{
-    background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
-  }
-  .hero .subtitle{
-    color:var(--text-dim);font-size:.95rem;margin-top:14px;
-    position:relative;z-index:1;letter-spacing:.04em
-  }
-  .hero .meta{
-    display:flex;justify-content:center;gap:12px;margin-top:18px;
-    flex-wrap:wrap;position:relative;z-index:1
-  }
-  .hero .meta span{
-    font-size:.75rem;padding:5px 16px;
-    border:1px solid var(--border);color:var(--text-dim)
+  .article-header .meta span{
+    padding:3px 12px;background:var(--bg-card);
+    border:1px solid var(--border);border-radius:4px
   }
 
-  section{padding:48px 0}
+  article{padding:36px 0 0}
+
+  /* BODY TEXT */
+  p{
+    font-size:1rem;margin-bottom:1.4em;line-height:1.9;
+    text-align:justify
+  }
+  p strong{color:var(--accent);font-weight:600}
+
+  /* SECTION TITLE */
   .section-title{
-    font-size:1.2rem;font-weight:700;margin-bottom:24px;
-    display:flex;align-items:center;gap:10px;
-    font-family:var(--font-mono);letter-spacing:.05em
+    font-size:1.1rem;font-weight:700;margin:36px 0 16px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--accent-soft);
+    color:#1a1a1a;
+    display:flex;align-items:baseline;gap:8px;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif
   }
-  .section-title .bracket{color:var(--neon-blue);opacity:.7}
+  .section-title .num{color:var(--accent);font-weight:700}
   .section-title .tag{
-    font-size:.62rem;font-weight:700;padding:2px 10px;
-    border:1px solid var(--neon-blue);color:var(--neon-blue);margin-left:8px;
-    font-family:var(--font-mono)
+    font-size:.68rem;font-weight:500;color:var(--accent-blue);
+    background:rgba(43,108,176,.08);
+    padding:1px 10px;border-radius:3px;
+    margin-left:auto
   }
-
-  p{font-size:.9rem;margin-bottom:1.2em;color:var(--text)}
-  p strong{color:var(--neon-amber)}
 
   /* HIGHLIGHT BOX */
   .highlight-box{
-    border:1px solid var(--border);
-    padding:28px 32px;margin:24px 0;
-    position:relative;box-shadow:var(--glow-blue)
+    background:var(--bg-highlight);
+    border-left:4px solid var(--accent);
+    padding:20px 24px;margin:24px 0;
+    border-radius:0 6px 6px 0
   }
   .highlight-box p{
-    font-size:1rem;font-weight:500;line-height:1.7;color:var(--text)
+    font-size:.95rem;font-weight:500;line-height:1.8;
+    margin-bottom:0
   }
   .highlight-box .source{
-    margin-top:8px;font-size:.8rem;color:var(--text-dim);
-    font-family:var(--font-mono)
+    margin-top:8px;font-size:.82rem;color:var(--text-dim);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif
   }
 
-  /* TIMELINE ITEMS */
-  .tl-item{
+  /* INFO CARDS (KEY POINTS) */
+  .info-card{
     background:var(--bg-card);border:1px solid var(--border);
-    padding:20px 24px;margin-bottom:12px;
-    display:flex;gap:16px;align-items:flex-start;
-    transition:all .3s;position:relative;overflow:hidden
+    padding:18px 22px;margin-bottom:10px;
+    display:flex;gap:14px;align-items:flex-start;
+    border-radius:6px;box-shadow:var(--shadow)
   }
-  .tl-item::before{
-    content:'';position:absolute;top:0;left:0;
-    width:3px;height:100%;background:var(--neon-blue);
-    opacity:0;transition:opacity .3s
-  }
-  .tl-item:hover{
-    border-color:rgba(59,130,246,.3);
-    box-shadow:0 0 20px rgba(59,130,246,.08);
-    transform:translateX(4px)
-  }
-  .tl-item:hover::before{opacity:1}
-  .tl-item .num{
-    width:30px;height:30px;
-    border:1px solid var(--neon-blue);color:var(--neon-blue);
+  .info-card .icon{
+    width:32px;height:32px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent);
     display:flex;align-items:center;justify-content:center;
-    font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px;
-    font-family:var(--font-mono)
+    font-size:.8rem;flex-shrink:0;margin-top:2px
   }
-  .tl-item .num.purple{border-color:var(--neon-purple);color:var(--neon-purple)}
-  .tl-item .num.amber{border-color:var(--neon-amber);color:var(--neon-amber)}
-  .tl-item .num.rose{border-color:var(--neon-rose);color:var(--neon-rose)}
-  .tl-item .num.teal{border-color:var(--neon-teal);color:var(--neon-teal)}
-  .tl-item .content h4{font-size:.95rem;margin-bottom:6px}
-  .tl-item .content p{font-size:.85rem;color:var(--text-dim);line-height:1.7}
-  .tl-item .content .highlight-text{color:var(--neon-amber);font-weight:600}
+  .info-card .content{flex:1}
+  .info-card .content h4{
+    font-size:.95rem;font-weight:600;margin-bottom:4px;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;
+    color:#1a1a1a
+  }
+  .info-card .content p{
+    font-size:.88rem;color:var(--text-dim);line-height:1.7;
+    margin-bottom:0
+  }
+  .info-card .content .highlight-text{color:var(--accent);font-weight:600}
 
-  /* DATA CARDS */
-  .card-grid{
-    display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:24px 0
+  /* DATA GRID */
+  .data-grid{
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:24px 0
   }
-  .card{
+  .data-card{
     background:var(--bg-card);border:1px solid var(--border);
-    padding:22px;transition:all .3s;text-align:center;
-    position:relative;overflow:hidden
+    padding:20px;text-align:center;border-radius:6px;
+    box-shadow:var(--shadow)
   }
-  .card:hover{
-    border-color:rgba(139,92,246,.25);
-    box-shadow:0 0 15px rgba(139,92,246,.08);
-    transform:translateY(-2px)
+  .data-card .big{
+    font-size:1.5rem;font-weight:800;
+    color:var(--accent);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif
   }
-  .card .big{
-    font-size:1.6rem;font-weight:800;
-    background:linear-gradient(135deg,var(--neon-blue),var(--neon-purple));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-    font-family:var(--font-mono)
-  }
-  .card .label{font-size:.75rem;color:var(--text-dim);margin-top:6px}
-  @media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+  .data-card .label{font-size:.78rem;color:var(--text-dim);margin-top:6px}
+  @media(max-width:600px){.data-grid{grid-template-columns:1fr}}
 
   /* DIVIDER */
-  .divider{
-    border:none;height:1px;background:var(--border);margin:32px 0
-  }
+  hr{border:none;height:1px;background:var(--border);margin:32px 0}
 
   /* FOOTER */
-  .footer{
+  .article-footer{
     padding:32px 0 48px;text-align:center;
-    border-top:1px solid var(--border);margin-top:32px
+    border-top:1px solid var(--border);margin-top:24px
   }
-  .footer .source-tag{
-    display:inline-block;font-size:.7rem;padding:4px 16px;
-    border:1px solid var(--border);color:var(--text-dim);
-    font-family:var(--font-mono)
+  .article-footer .source-tag{
+    display:inline-block;font-size:.75rem;padding:4px 16px;
+    background:var(--bg-card);border:1px solid var(--border);
+    color:var(--text-dim);border-radius:4px
   }
 
   @media(max-width:640px){
-    .hero{padding:56px 0 40px}
-    .hero h1{font-size:1.5rem}
-    section{padding:32px 0}
-    .tl-item{padding:16px}
-    .highlight-box{padding:20px}
+    .article-header{padding:40px 0 24px}
+    .article-header h1{font-size:1.3rem}
+    article{padding:24px 0}
+    p{font-size:.93rem;text-align:left}
+    .info-card{padding:14px 16px}
+    .highlight-box{padding:16px 18px}
   }
 </style>
 </head>
 <body>
-<div class="hero">
+<div class="article-header">
   <div class="container">
-    <h1><span class="gradient">AWS 要卖 AI 服务器了</span></h1>
+    <h1>AWS 要卖 AI 服务器了</h1>
     <p class="subtitle">Trainium 整柜销售 · 云计算的权力转移 · AI 算力军备竞赛</p>
     <div class="meta">
       <span>大单网</span>
@@ -194,7 +173,8 @@
 </div>
 
 <div class="container">
-  <section>
+  <article>
+
     <p>AWS 的 AI 芯片业务正在出现一个关键转向。过去，客户只能通过 AWS 云服务使用 Trainium 算力；现在，Amazon 已经公开松口，未来可能把搭载 Trainium 芯片的整柜系统直接卖给客户。</p>
 
     <p>Amazon CEO Andy Jassy 在最新财报电话会上谈到 Trainium 机柜销售时表示，未来<strong>"很有可能"</strong>出售整柜系统，但眼下需要先平衡现有云客户需求和未来整柜销售之间的产能分配。</p>
@@ -203,25 +183,24 @@
 
     <div class="highlight-box">
       <p>云计算正在被 AI 拉回硬件时代。AWS 当年定义了云计算的核心逻辑——企业不用买服务器，直接租云。但到了 AI 大模型时代，最大的客户可能又开始买服务器了。</p>
-      <p style="margin-top:12px;font-size:.9rem">只是这一次，它们买的不是传统服务器，而是装满自研 AI 芯片的整柜系统；卖方也不再只是传统 OEM，而是 <strong style="color:var(--neon-amber)">AWS、Google 这样的云巨头</strong>。</p>
+      <p style="margin-top:12px;font-size:.92rem">只是这一次，它们买的不是传统服务器，而是装满自研 AI 芯片的整柜系统；卖方也不再只是传统 OEM，而是 <strong>AWS、Google 这样的云巨头</strong>。</p>
     </div>
 
     <div class="section-title">
-      <span class="bracket">[</span> 01 <span class="bracket">]</span>
-      Anthropic：1000 亿美元锁定 10 年算力
-      <span class="tag">DEAL</span>
+      <span class="num">01</span> Anthropic：1000 亿美元锁定 10 年算力
+      <span class="tag">交易</span>
     </div>
 
-    <div class="tl-item">
-      <div class="num purple">D</div>
+    <div class="info-card">
+      <div class="icon">D</div>
       <div class="content">
         <h4>💎 合作规模</h4>
         <p>Anthropic 承诺未来 10 年向 AWS 技术投入超过 <span class="highlight-text">1000 亿美元</span>，获得最高 <span class="highlight-text">5 GW</span> 的 Trainium 算力，覆盖 Trainium2 → Trainium4 及未来代际。</p>
       </div>
     </div>
 
-    <div class="tl-item">
-      <div class="num amber">K</div>
+    <div class="info-card">
+      <div class="icon">K</div>
       <div class="content">
         <h4>🔑 关键判断</h4>
         <p>Anthropic 不再只是一个普通云客户，而是在锁定未来 10 年的底层算力供应。到了 5 GW 这个级别，算力已经不是简单的云资源采购，而是涉及<strong>芯片、机柜、网络、电力、散热、数据中心</strong>的基础设施工程。</p>
@@ -229,41 +208,38 @@
     </div>
 
     <div class="section-title">
-      <span class="bracket">[</span> 02 <span class="bracket">]</span>
-      Google 已经先走一步
-      <span class="tag">RIVAL</span>
+      <span class="num">02</span> Google 已经先走一步
+      <span class="tag">对手</span>
     </div>
 
     <p>Anthropic 今年 4 月还扩大了与谷歌云和 Broadcom 的合作，将获得多吉瓦级 TPU 容量，从 2027 年开始上线，规模达到 <strong>3.5 GW</strong>。头部 AI 公司不想只绑定一家云厂商——它们一边用 AWS Trainium，一边用 Google TPU，本质上在建立<strong>多供应商基础设施</strong>。</p>
 
     <div class="section-title">
-      <span class="bracket">[</span> 03 <span class="bracket">]</span>
-      AWS 的算盘：卖整柜，锁生态
-      <span class="tag">STRATEGY</span>
+      <span class="num">03</span> AWS 的算盘：卖整柜，锁生态
+      <span class="tag">战略</span>
     </div>
 
     <p>如果 AWS 只是将 Trainium 放在自家云上出租，Anthropic、OpenAI 这类客户可能转向 Google TPU、Nvidia GPU 集群，甚至自建数据中心。如果 AWS 愿意<strong>出售 Trainium 整柜系统</strong>，虽然少赚云服务溢价，但至少能把客户留在自研芯片生态里。</p>
 
     <div class="highlight-box">
-      <p><strong style="color:var(--neon-amber)">这也是为什么"卖整柜"比"卖云服务"更值得关注。</strong>它改变的不只是销售形式，而是云计算的权力关系。</p>
+      <p><strong>这也是为什么"卖整柜"比"卖云服务"更值得关注。</strong>它改变的不只是销售形式，而是云计算的权力关系。</p>
     </div>
 
     <div class="section-title">
-      <span class="bracket">[</span> 04 <span class="bracket">]</span>
-      财报里的信号
-      <span class="tag">DATA</span>
+      <span class="num">04</span> 财报里的信号
+      <span class="tag">数据</span>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
+    <div class="data-grid">
+      <div class="data-card">
         <div class="big">$376亿</div>
         <div class="label">AWS 季度收入（+28%）</div>
       </div>
-      <div class="card">
+      <div class="data-card">
         <div class="big">$142亿</div>
         <div class="label">AWS 营业利润</div>
       </div>
-      <div class="card">
+      <div class="data-card">
         <div class="big">37.7%</div>
         <div class="label">AWS 营业利润率</div>
       </div>
@@ -272,21 +248,20 @@
     <p>Amazon 当季整体净销售额 1815 亿美元，净利润 303 亿美元。但 AWS 高达 <strong>37.7%</strong> 的营业利润率，正是 Anthropic 和 OpenAI 这类大客户不愿长期承担的成本。</p>
 
     <div class="section-title">
-      <span class="bracket">[</span> 05 <span class="bracket">]</span>
-      自研芯片：从配角到主角
-      <span class="tag">CHIP</span>
+      <span class="num">05</span> 自研芯片：从配角到主角
+      <span class="tag">芯片</span>
     </div>
 
-    <div class="card-grid">
-      <div class="card">
+    <div class="data-grid">
+      <div class="data-card">
         <div class="big">+40%</div>
         <div class="label">芯片业务 QoQ 增长</div>
       </div>
-      <div class="card">
+      <div class="data-card">
         <div class="big">$200亿+</div>
         <div class="label">年化收入运行率</div>
       </div>
-      <div class="card">
+      <div class="data-card">
         <div class="big">$2250亿</div>
         <div class="label">Trainium 收入承诺</div>
       </div>
@@ -295,23 +270,21 @@
     <p>Trainium2 相比同类 GPU 有约 <strong>30%</strong> 的价格性能优势，Trainium3 又提升 <strong>30%–40%</strong>。</p>
 
     <div class="section-title">
-      <span class="bracket">[</span> 06 <span class="bracket">]</span>
-      OpenAI 也加入了 Trainium 阵营
-      <span class="tag">EXPAND</span>
+      <span class="num">06</span> OpenAI 也加入了 Trainium 阵营
+      <span class="tag">扩展</span>
     </div>
 
     <p>Amazon 今年 2 月宣布，OpenAI 和 AWS 将原有 380 亿美元多年协议扩大 <strong>1000 亿美元</strong>，OpenAI 将通过 AWS 基础设施使用约 <strong>2 GW</strong> Trainium 容量。</p>
 
     <div class="section-title">
-      <span class="bracket">[</span> 07 <span class="bracket">]</span>
-      对 Nvidia 意味着什么
-      <span class="tag">IMPLIC</span>
+      <span class="num">07</span> 对 Nvidia 意味着什么
+      <span class="tag">影响</span>
     </div>
 
     <p>Nvidia 仍拥有最完整的 GPU 生态和软件栈，短期内很难被全面取代。但 AWS Trainium 和 Google TPU 正在给大客户提供<strong>第二套选择</strong>。当模型公司以 10 年、数 GW 规模规划算力时，<strong>成本和供应链控制权</strong>会变得越来越重要。</p>
-  </section>
+  </article>
 
-  <div class="footer">
+  <div class="article-footer">
     <span class="source-tag">云头条 · 引领科技变革，连接技术与商业</span>
   </div>
 </div>
